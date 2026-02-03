@@ -22,7 +22,7 @@ public class AnnouncementService {
         return announcementRepository.findAll();
     }
 
-    public String deleteAnnouncement(Long id, Announcement announcement) {
+    public String deleteAnnouncement(Long id) {
         announcementRepository.deleteById(id);
         return "Deleted successfully.";
     }

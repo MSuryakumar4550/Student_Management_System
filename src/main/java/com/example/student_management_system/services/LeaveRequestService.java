@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.student_management_system.entities.Leave;
+import com.example.student_management_system.entities.LeaveRequest;
 import com.example.student_management_system.repositories.LeaveRequestRepository;
 
 @Service
@@ -14,21 +14,21 @@ public class LeaveRequestService {
     @Autowired
     private LeaveRequestRepository leaveRequestRepository;
 
-    public Leave addLeaveRequest(Leave leave) {
+    public LeaveRequest addLeaveRequest(LeaveRequest leave) {
         return leaveRequestRepository.save(leave);
     }
 
-    public List<Leave> getLeaveRequest() {
+    public List<LeaveRequest> getLeaveRequest() {
         return leaveRequestRepository.findAll();
     }
 
-    public String deleteLeave(Long id, Leave leave) {
+    public String deleteLeave(Long id) {
         leaveRequestRepository.deleteById(id);
         return "Deleted successfully.";
     }
 
-    public Leave updateLeave(Long id, Leave leave) {
-        Leave existing = leaveRequestRepository.findById(id).orElse(null);
+    public LeaveRequest updateLeave(Long id, LeaveRequest leave) {
+        LeaveRequest existing = leaveRequestRepository.findById(id).orElse(null);
         if (existing != null) {
             existing.setAppliedDate(leave.getAppliedDate());
             existing.setFromDate(leave.getFromDate());

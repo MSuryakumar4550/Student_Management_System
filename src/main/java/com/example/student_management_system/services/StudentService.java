@@ -22,7 +22,7 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
-    public String deleteStudent(Long id, Student student) {
+    public String deleteStudent(Long id) {
         studentRepository.deleteById(id);
         return "Deleted successfully.";
     }

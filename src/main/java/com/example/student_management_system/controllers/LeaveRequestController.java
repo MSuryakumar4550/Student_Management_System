@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.student_management_system.entities.Leave;
+import com.example.student_management_system.entities.LeaveRequest;
 import com.example.student_management_system.services.LeaveRequestService;
 
 @RestController
@@ -17,22 +17,22 @@ public class LeaveRequestController {
     private LeaveRequestService leaveRequestService;
 
     @PostMapping("/addLeaveRequest")
-    public Leave addLeaveRequest(@RequestBody Leave leave) {
+    public LeaveRequest addLeaveRequest(@RequestBody LeaveRequest leave) {
         return leaveRequestService.addLeaveRequest(leave);
     }
 
     @GetMapping("/getLeaveRequest")
-    public List<Leave> getLeaveRequest() {
+    public List<LeaveRequest> getLeaveRequest() {
         return leaveRequestService.getLeaveRequest();
     }
 
     @DeleteMapping("/deleteLeaveRequest/{id}")
-    public String deleteLeave(@RequestBody Long id, Leave leave) {
-        return leaveRequestService.deleteLeave(id, leave);
+    public String deleteLeave(@PathVariable Long id) {
+        return leaveRequestService.deleteLeave(id);
     }
 
     @PutMapping("/updateLeaveRequest/{id}")
-    public Leave updateLeave(@RequestBody Long id, Leave leave) {
+    public LeaveRequest updateLeave(@PathVariable Long id, @RequestBody LeaveRequest leave) {
         return leaveRequestService.updateLeave(id, leave);
     }
 }

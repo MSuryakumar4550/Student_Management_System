@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Leave {
+public class LeaveRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

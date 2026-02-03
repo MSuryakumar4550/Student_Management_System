@@ -22,7 +22,7 @@ public class TeamService {
         return teamRepository.findAll();
     }
 
-    public String deleteTeam(Long id, Team team) {
+    public String deleteTeam(Long id) {
         teamRepository.deleteById(id);
         return "Deleted successfully.";
     }

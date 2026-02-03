@@ -25,12 +25,12 @@ public class StudentController {
     }
 
     @DeleteMapping("/deleteStudent/{id}")
-    public String deleteStudent(@RequestBody Long id, Student student) {
-        return studentService.deleteStudent(id, student);
+    public String deleteStudent(@PathVariable Long id) {
+        return studentService.deleteStudent(id);
     }
 
     @PutMapping("/updateStudent/{id}")
-    public Student updateStudent(@RequestBody Long id, Student student) {
+    public Student updateStudent(@PathVariable Long id, @RequestBody Student student) {
         return studentService.updateStudent(id, student);
     }
 }

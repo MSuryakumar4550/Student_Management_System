@@ -22,7 +22,7 @@ public class AdminService {
         return adminRepository.findAll();
     }
 
-    public String deleteAdmin(Long id, Admin admin) {
+    public String deleteAdmin(Long id) {
         adminRepository.deleteById(id);
         return "Deleted successfully.";
     }

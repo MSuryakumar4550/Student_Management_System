@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.example.student_management_system.entities.Admin;
 import com.example.student_management_system.services.AdminService;
@@ -27,12 +25,12 @@ public class AdminController {
     }
 
     @DeleteMapping("/deleteAdmin/{id}")
-    public String deleteAdmin(@RequestBody Long id, Admin admin) {
-        return adminService.deleteAdmin(id, admin);
+    public String deleteAdmin(@PathVariable Long id) {
+        return adminService.deleteAdmin(id);
     }
 
     @PutMapping("/updateAdmin/{id}")
-    public Admin updateAdmin(@RequestBody Long id, Admin admin) {
+    public Admin updateAdmin(@PathVariable Long id, @RequestBody Admin admin) {
         return adminService.updateAdmin(id, admin);
     }
 }

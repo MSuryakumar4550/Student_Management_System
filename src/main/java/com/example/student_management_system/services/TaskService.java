@@ -22,7 +22,7 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
-    public String deleteTask(Long id, Task task) {
+    public String deleteTask(Long id) {
         taskRepository.deleteById(id);
         return "Deleted successfully.";
     }

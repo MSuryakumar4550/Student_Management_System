@@ -27,12 +27,12 @@ public class AnnouncementController {
     }
 
     @DeleteMapping("/deleteAnnouncement/{id}")
-    public String deleteAnnouncement(@RequestBody Long id, Announcement announcement) {
-        return announcementService.deleteAnnouncement(id, announcement);
+    public String deleteAnnouncement(@PathVariable Long id) {
+        return announcementService.deleteAnnouncement(id);
     }
 
     @PutMapping("/updateAnnouncement/{id}")
-    public Announcement updateAnnouncement(@RequestBody Long id, Announcement announcement) {
+    public Announcement updateAnnouncement(@PathVariable Long id, @RequestBody Announcement announcement) {
         return announcementService.updateAnnouncement(id, announcement);
     }
 }

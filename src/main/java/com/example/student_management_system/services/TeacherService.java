@@ -21,7 +21,7 @@ public class TeacherService {
         return teacherRepository.findAll();
     }
 
-    public String deleteTeacher(Long id, Teacher teacher) {
+    public String deleteTeacher(Long id) {
         teacherRepository.deleteById(id);
         return "Deleted successfully.";
     }
